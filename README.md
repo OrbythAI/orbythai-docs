@@ -3,23 +3,23 @@ Documentação oficial OrbythAI v4.1 (Dossiê, Briefings, Contratos, Roadmaps)
 # OrbythAI Docs (v4.1)
 
 ## Dossiê
-- [Dossiê v4.1](docs/Dossie_v4.1.md) -[Versão Raw (para os agentes IA)](https://github.com/OrbythAI/orbythai-docs/blob/18348af9dc8c10beaa323c6808d56ba3f89e1f6f/docs/Dossie_v4.1.md)
+- [Dossiê v4.1](dossie/Dossie_v4.1.md) -[Versão Raw (para os agentes IA)](https://github.com/OrbythAI/orbythai-docs/blob/18348af9dc8c10beaa323c6808d56ba3f89e1f6f/dossie/Dossie_v4.1.md)
 
 
 
 ## Briefings
-- [Garimpeiro v1.0](Briefing/Briefing_Garimpeiro_v1.0.md)
-- [Elo v1.0](docs/02-briefings/Briefing_Elo_v1.0.md)
-- [Guardião v1.0](docs/02-briefings/Briefing_Guardiao_v1.0.md)
-- [Orçamentista v1.0](docs/02-briefings/Briefing_Orcamentista_v1.0.md)
+- [Garimpeiro v1.0](Briefing/Briefing_Garimpeiro_v1.0.md)-[Versão Raw (para os agentes IA)](https://github.com/OrbythAI/orbythai-docs/blob/8894ce065f18c6b05f02c4bfde076bc5f03f56f5/Briefing/Briefing_Garimpeiro_v1.0.md)
+- [Elo v1.0](briefings/Briefing_Elo_v1.0.md)-[Versão Raw (para os agentes IA)]()
+- [Guardião v1.0](briefings/Briefing_Guardiao_v1.0.md)-[Versão Raw (para os agentes IA)]()
+- [Orçamentista v1.0](briefings/Briefing_Orcamentista_v1.0.md)-[Versão Raw (para os agentes IA)]()
 
 ## Roadmap
-- [Roadmap v4.1](docs/03-roadmap/Roadmap_v4.1.md)
+- [Roadmap v4.1](roadmap/Roadmap_v4.1.md)-[Versão Raw (para os agentes IA)]()
 
 ## Prompts
-- [Agente Orquestrador](docs/04-prompts/Prompt_Agente_Orquestrador.md)
-- [Equipe 1 (SaaS)](docs/04-prompts/Prompt_Equipe1_SaaS.md)
-- [Equipe 2 (N8N/Supabase)](docs/04-prompts/Prompt_Equipe2_N8N_Supabase.md)
+- [Agente Orquestrador](prompts/Prompt_Agente_Orquestrador.md)-[Versão Raw (para os agentes IA)]()
+- [Equipe 1 (SaaS)](prompts/Prompt_Equipe1_SaaS.md)-[Versão Raw (para os agentes IA)]()
+- [Equipe 2 (N8N/Supabase)](prompts/Prompt_Equipe2_N8N_Supabase.md)-[Versão Raw (para os agentes IA)]()
 
 ## Contratos (em preparação)
-- [Contrato Master de Dados & API v4.1](docs/05-contratos/Contrato_Master_v4.1.md)
+- [Contrato Master de Dados & API v4.1](contratos/Contrato_Master_v4.1.md)-[Versão Raw (para os agentes IA)]()
