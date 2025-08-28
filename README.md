@@ -3,7 +3,7 @@ Documentação oficial OrbythAI v4.1 (Dossiê, Briefings, Contratos, Roadmaps)
 # OrbythAI Docs (v4.1)
 
 ## Dossiê
-- [Dossiê v4.1](dossie/Dossie_v4.1.md) -[Versão Raw (para os agentes IA)](https://github.com/OrbythAI/orbythai-docs/blob/18348af9dc8c10beaa323c6808d56ba3f89e1f6f/dossie/Dossie_v4.1.md)
+- [Dossiê v4.1](dossie/Dossie_v4.1.md) -[Versão Raw (para os agentes IA)](https://github.com/OrbythAI/orbythai-docs/blob/1a48847c8132d18268297c0417113acca6e5183b/dossie/Dossie_v4.1.md)
 
 
 
