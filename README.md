@@ -10,7 +10,7 @@ Documentação oficial OrbythAI v4.1 (Dossiê, Briefings, Contratos, Roadmaps)
 ## Briefings
 - [Garimpeiro v1.0](briefings/Briefing_Garimpeiro_v1.0.md)-[Versão Raw (para os agentes IA)](https://github.com/OrbythAI/orbythai-docs/blob/8894ce065f18c6b05f02c4bfde076bc5f03f56f5/Briefing/Briefing_Garimpeiro_v1.0.md)
 - [Elo v1.0](briefings/Briefing_Elo_v1.0.md)-[Versão Raw (para os agentes IA)](https://github.com/OrbythAI/orbythai-docs/blob/c35126e9c276bfef908ccb5981167aaa463b5a27/briefing/Briefing_Elo_v1.0.md)
-- [Guardião_Enterprise v1.0](briefings/Briefing_Guardião_Enterprise_API_Integrado) v1.md)-[Versão Raw (para os agentes IA)]()
+- [Guardião_Enterprise v1.0](briefings/Briefing_Guardião_Enterprise_API_Integrado_v1.0.md)-[Versão Raw (para os agentes IA)]()
 - [Orçamentista v1.0](briefings/Briefing_Orcamentista_v1.0.md)-[Versão Raw (para os agentes IA)]()
 
 ## Roadmap
