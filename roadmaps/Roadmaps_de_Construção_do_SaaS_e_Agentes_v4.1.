@@ -1,0 +1,271 @@
+
+# **Roadmap de Construção do SaaS e Agentes – 28/08/2025)**
+
+**Este roadmap é a nossa ordem de construção. Os Sprints 0 e 1 são a fundação sequencial. A partir do Sprint 2, cada Sprint seguirá a metodologia de “Desenvolvimento Integrado por Semana” para garantir o alinhamento das equipes.**
+
+
+---
+
+
+## **Sprint 0: A Fundação (Duração: 1 semana)**
+
+**Objetivo: Preparar todo o ambiente de trabalho antes de escrever a primeira linha de código do produto.**
+
+**Tarefas da Equipe SaaS**
+
+
+
+* **Configurar projetos no Supabase (Desenvolvimento e Produção) com RLS e variáveis de ambiente. \
+**
+* **Criar os repositórios Git e convenções de branch (<code>develop</code>/<code>main</code>). \
+**
+* **CI/CD (Hostinger): conectar repositório, deploy automático em desenvolvimento a cada push em <code>develop</code> e em produção a cada merge em <code>main</code>. Variáveis de ambiente e rotinas de rollback documentadas. \
+**
+
+**Tarefas da Equipe N8N (Enzo)**
+
+
+
+* **Configurar duas instâncias do N8N no VPS Contabo (Desenvolvimento e Produção). \
+**
+* **Estruturar versionamento dos workflows dos agentes e secrets por ambiente. \
+**
+
+**Tarefa Conjunta**
+
+
+
+* **Reunião de kick-off com todas as equipes para revisar o Dossiê v4.1 e este roadmap. \
+**
+
+
+---
+
+
+## **Sprint 1: O Esqueleto — Login e Gestão de Contas (Duração: 2 semanas)**
+
+**Objetivo: Construir o núcleo de acesso e segurança da plataforma. Ao final, um usuário poderá se cadastrar, fazer login e ver um painel vazio.**
+
+**Tarefas da Equipe SaaS**
+
+
+
+* **Interfaces de Login, Cadastro e Recuperação de Senha. \
+**
+* **API de autenticação com Supabase Auth (OAuth/JWT). \
+**
+* **RBAC (Admin, Gerente, Operador) e scaffold do OrbythAI Command Center. \
+**
+
+**Tarefas da Equipe N8N (Enzo)**
+
+
+
+* **Tabelas base: <code>users</code>, <code>tenants</code>, <code>roles</code> (+ RLS). \
+**
+* **Workflow de teste para validar chamada autenticada do SaaS acionando o N8N. \
+**
+
+
+---
+
+
+## **Sprint 2: Órby Garimpeiro + Prisma Essencial + Onboarding Assistido (Duração: 3 semanas)**
+
+**Objetivo: Entregar a primeira funcionalidade ponta a ponta com “desenvolvimento integrado”.**
+
+**Inclui:**
+
+
+
+* **Órby Garimpeiro (motor de prospecção). \
+**
+* **Prisma Essencial (dashboard + conversacional limitado). \
+**
+* **Onboarding e Configuração Assistidos (Setup Wizard, Painel de Configuração, Ciclo de Feedback 👍/👎, Playground). \
+**
+
+
+### **Semana 1 — Fundação dos Dados e Contrato da API**
+
+
+
+* **N8N/Enzo: criar <code>flow_garimpeiro_filtros</code>, <code>flow_oportunidades_garimpeiro</code> (mock inicial). \
+**
+* **SaaS: endpoints: <code>GET /api/garimpeiro/filtros</code>, <code>POST /api/garimpeiro/executar</code>. \
+**
+
+
+### **Semana 2 — Motor (N8N) e Interface (SaaS)**
+
+**N8N (Motor)**
+
+
+
+* **Captura de dados (HTTP/Playwright) das fontes oficiais. \
+**
+* **Extração com IA (GPT-4o) → JSON estruturado. \
+**
+* **Enriquecimento (ReceitaWS, cnpj.io, CREA/CAU). \
+**
+* **Regras de relevância (IF/Function) baseadas em <code>flow_garimpeiro_filtros</code>. \
+**
+* **Registro de consumo: gravar em <code>usage_logs</code> a regra 100 orbkens por consulta + 1 orbken a cada 100 tokens processados (IA e APIs pagas), com <code>tenant_id</code>, <code>agente</code>, <code>origem</code>, <code>tokens_in/out</code>, <code>custo_estimado</code>, <code>corr_id</code>, <code>timestamp</code>. \
+**
+* **Persistência em <code>flow_oportunidades_garimpeiro</code> e handoff para o Elo quando modo = Automático. \
+**
+
+**SaaS (Interface)**
+
+
+
+* **Painel de Configuração (CRUD de filtros, agendamento, modo Manual/Automático). \
+**
+* **Prisma Essencial: tabela de resultados + ações [Executar Busca], [Iniciar Elo], [Descartar] + botão [✨ Analisar com IA] (conversacional limitado com logging). \
+**
+
+
+### **Semana 3 — Integração e Testes de Ponta a Ponta**
+
+
+
+* **Conectar interface ↔ motor, testes e documentação funcional. \
+**
+
+
+---
+
+
+## **Sprint 3: Órby Elo (SDR Digital Central)**
+
+**Objetivo: Qualificar leads vindos do Garimpeiro (e do Guardião no S4), com automação parcial (human-in-the-loop).**
+
+
+
+* **Painel de Configuração (scripts por origem, objetivo, tom de voz, canais). \
+**
+* **Fila/Funil: Novos → Em Qualificação → Qualificados → Desqualificados. \
+**
+* **Transcrição por lead; ações: [Assumir], [Mensagem Sugerida], [Desqualificar], [Gerar Proposta], [Agendar Reunião]. \
+**
+* **Handoff para Orçamentista (proposta) e Guardião (reativação/follow-up). \
+**
+* **Prisma Essencial do Elo (KPIs + [✨ Analisar com IA] com logging). \
+**
+
+
+---
+
+
+## **Sprint 4: Órby Guardião da Carteira**
+
+**Objetivo: Inteligência de carteira (inatividade/risco, alertas e reengajamento).**
+
+
+
+* **Gestor de Contatos Órby (CRUD + importador com mapeamento assistido). \
+**
+* **Painel de Políticas Comerciais (regras e SLAs). \
+**
+* **Inbox de Alertas + handoff para o Elo quando aplicável. \
+**
+* **Prisma Essencial do Guardião (KPIs + [✨ Analisar com IA]). \
+**
+
+
+---
+
+
+## **Sprint 5: Órby Orçamentista**
+
+**Objetivo: Automação do processo de orçamento.**
+
+
+
+* **Upload/classificação de PDFs. \
+**
+* **Painel de validação e calibragem (dados, planta, chat). \
+**
+* **Fluxos: Pré-Proposta, Medição, Proposta Final. \
+**
+
+
+---
+
+
+## **Sprint 6: Órby Prisma Estrategista**
+
+**Objetivo: Segunda camada do Prisma (estratégia/BI).**
+
+
+
+* **Interface conversacional avançada e orquestração de sub-workflows. \
+**
+* **Recomendações estratégicas, respostas ricas e análises cruzadas. \
+**
+
+
+---
+
+
+## **Sprint 7: Assinatura e Faturamento (Versão Enterprise mínima)**
+
+**Objetivo: Gestão de consumo e cobrança para Enterprise.**
+
+
+
+* **Pacotes de orbkens, histórico de consumo, relatórios de fatura. \
+**
+* **Gestão de agentes ativos (Enterprise). \
+**
+
+    **Nota: Versão Self-Service completa (checkout/upgrade) fica para Fase 2.**
+
+
+
+---
+
+
+## **Sprint 8: CRM Integrado no Command Center**
+
+**Objetivo: Consolidar visão 360º para nossa equipe interna.**
+
+
+
+* **Integração CRM dentro do Command Center: leads, oportunidades, clientes, alertas. \
+**
+
+
+---
+
+
+## **Fase 2 (Pós-MVP)**
+
+**Funcionalidades valiosas, mas não críticas para o MVP:**
+
+
+
+* **Biblioteca de Agentes Self-Service (ativação direta e upgrades). \
+**
+* **Setup Wizard automatizado para Self-Service. \
+**
+* **Academia Órby (EAD + comunidade). \
+**
+* **Canais contextuais (pop-ups, sininhos), WhatsApp (KPIs/relatórios). \
+**
+* **Customização visual avançada do PWA. \
+**
+* **Logs de performance/autoajuste de agentes. \
+**
+* **Trial/teste gratuito com upgrade in-app. \
+**
+* **Painel interno de métricas (uso, engajamento, churn) e segmentação comportamental. \
+**
+* **Sugestões proativas de agentes por setor. \
+**
+* **Sandbox de testes e Marketplace público de agentes. \
+**
+
+
+---
+
