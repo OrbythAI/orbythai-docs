@@ -8,7 +8,7 @@ Documentação oficial OrbythAI v4.1 (Dossiê, Briefings, Contratos, Roadmaps)
 
 
 ## Briefings
-- [Garimpeiro v1.0](docs/02-briefings/Briefing_Garimpeiro_v1.0.md)
+- [Garimpeiro v1.0](Briefing/Briefing_Garimpeiro_v1.0.md)
 - [Elo v1.0](docs/02-briefings/Briefing_Elo_v1.0.md)
 - [Guardião v1.0](docs/02-briefings/Briefing_Guardiao_v1.0.md)
 - [Orçamentista v1.0](docs/02-briefings/Briefing_Orcamentista_v1.0.md)
