@@ -3,7 +3,9 @@ Documentação oficial OrbythAI v4.1 (Dossiê, Briefings, Contratos, Roadmaps)
 # OrbythAI Docs (v4.1)
 
 ## Dossiê
-- [Dossiê v4.1](docs/01-dossie/Dossie_v4.1.md)
+- [Dossiê v4.1](docs/01-dossie/Dossie_v4.1.md) -[Versão Raw (para os agentes IA)](https://github.com/OrbythAI/orbythai-docs/blob/973cac300728a702ff78e2503e33263bb2887be7/docs/01-dossie/Dossie_v4.1.md)
+
+
 
 ## Briefings
 - [Garimpeiro v1.0](docs/02-briefings/Briefing_Garimpeiro_v1.0.md)
