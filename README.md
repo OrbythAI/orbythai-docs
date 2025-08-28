@@ -18,7 +18,7 @@ Documentação oficial OrbythAI v4.1 (Dossiê, Briefings, Contratos, Roadmaps)
 - [Orçamentista v1.0](briefings/Briefing_Orcamentista_v1.0.md)-[Versão Raw (para os agentes IA)]()
 
 ## Roadmap
-- [Roadmap de_Construção_do_SaaS_e_Agentes_v4.1](roadmaps/Roadmaps_de_Construção_do_SaaS_e_Agentes_v4.1.md)-[Versão Raw (para os agentes IA)]()
+- [Roadmap de_Construção_do_SaaS_e_Agentes_v4.1](roadmaps/Roadmaps_de_Construção_do_SaaS_e_Agentes_v4.1.md)-[Versão Raw (para os agentes IA)](https://github.com/OrbythAI/orbythai-docs/blob/736c0715df43f94698ae7ef34d4eddb300cb09e7/roadmaps/Roadmaps_de_Constru%C3%A7%C3%A3o_do_SaaS_e_Agentes_v4.1.md)
 
 ## Prompts
 - [Agente Orquestrador](prompts/Prompt_Agente_Orquestrador.md)-[Versão Raw (para os agentes IA)]()
