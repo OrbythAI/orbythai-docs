@@ -25,6 +25,11 @@ Documentação oficial OrbythAI v4.1 — Dossiê, Briefings, Roadmaps, Contratos
 ---
 
 ## Prompts (em construção)
+-[Prompt Sprint 0 — Equipe SaaS + Equipe N8N]()[Versão Raw]()
+-[Prompt Sprint 1 — Equipe SaaS + Equipe N8N]()[Versão Raw]()
+-[Prompt Sprint 2 — Equipe SaaS + Equipe N8N]()[Versão Raw]()
+-[Prompt Sprint 3 — Equipe SaaS + Equipe N8N]()[Versão Raw]()
+
 - [Agente Orquestrador](prompts/Prompt_Agente_Orquestrador.md) • [Versão Raw](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/prompts/Prompt_Agente_Orquestrador.md)
 - [Equipe 1 (SaaS)](prompts/Prompt_Equipe1_SaaS.md) • [Versão Raw](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/prompts/Prompt_Equipe1_SaaS.md)
 - [Equipe 2 (N8N/Supabase)](prompts/Prompt_Equipe2_N8N_Supabase.md) • [Versão Raw](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/prompts/Prompt_Equipe2_N8N_Supabase.md)
