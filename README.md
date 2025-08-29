@@ -25,7 +25,7 @@ Documentação oficial OrbythAI v4.1 — Dossiê, Briefings, Roadmaps, Contratos
 ---
 
 ## Entregaveis
-- **Entregaveis Sprint 0 — Equipe SaaS + Equipe N8N** — [sprint](entregaveis/ENTREGAVEIS_SPRINT_0.md) • [Versão Raw]()
+- **Entregaveis Sprint 0 — Equipe SaaS + Equipe N8N** — [sprint](entregaveis/ENTREGAVEIS_SPRINT_0.md) • [Versão Raw](https://github.com/OrbythAI/orbythai-docs/blob/86359d5dda24c297502a1d0d66df1e992f9ce5bf/entregaveis/ENTREGAVEIS_SPRINT_0.md)
 
 - **Entregaveis Sprint 1 — Equipe SaaS + Equipe N8N** — [sprint](entregaveis/ENTREGAVEIS_SPRINT_1.md) • [Versão Raw](https://github.com/OrbythAI/orbythai-docs/blob/9bb7593bcf87860363c1e1566589289a50b3e75b/entregaveis/ENTREGAVEIS_SPRINT_1.md)
 
