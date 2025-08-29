@@ -27,14 +27,14 @@ Documentação oficial OrbythAI v4.1 — Dossiê, Briefings, Roadmaps, Contratos
 ## Entregaveis
 - **Entregaveis Sprint 0 — Equipe SaaS + Equipe N8N** — [sprint](entregaveis/ENTREGAVEIS_SPRINT_0.md) • [Versão Raw]()
 
-- **Entregaveis Sprint 1 — Equipe SaaS + Equipe N8N** — [sprint](entregaveis/ENTREGAVEIS_SPRINT_1.md) • [Versão Raw]()
+- **Entregaveis Sprint 1 — Equipe SaaS + Equipe N8N** — [sprint](entregaveis/ENTREGAVEIS_SPRINT_1.md) • [Versão Raw](https://github.com/OrbythAI/orbythai-docs/blob/9bb7593bcf87860363c1e1566589289a50b3e75b/entregaveis/ENTREGAVEIS_SPRINT_1.md)
 
 - **Entregaveis Sprint 2 — Equipe SaaS + Equipe N8N** — [sprint](entregaveis/ENTREGAVEIS_SPRINT_2.md) • [Versão Raw](https://github.com/OrbythAI/orbythai-docs/blob/6d35b0e402556c75c9ac8de63d5f1f4fc2c4c7cb/entregaveis/ENTREGAVEIS_SPRINT_2.md)
 
-- **Entregaveis Sprint 3 — Equipe SaaS + Equipe N8N** — [sprint](entregaveis/ENTREGAVEIS_SPRINT_3.md) • [Versão Raw]()
+- EM CONSTRUÇÃO**Entregaveis Sprint 3 — Equipe SaaS + Equipe N8N** — [sprint](entregaveis/ENTREGAVEIS_SPRINT_3.md) • [Versão Raw]()
 
 ---
-
+EM CONSTRUÇÃO
 ## Prompts
 - [Agente Orquestrador](prompts/Prompt_Agente_Orquestrador.md) • [Versão Raw](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/prompts/Prompt_Agente_Orquestrador.md)
 - [Equipe 1 (SaaS)](prompts/Prompt_Equipe1_SaaS.md) • [Versão Raw](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/prompts/Prompt_Equipe1_SaaS.md)
