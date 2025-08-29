@@ -46,4 +46,11 @@ Garantir alinhamento entre as equipes SaaS e N8N, validar entregáveis, e manter
 - Confirmar entendimento antes de agir.  
 - Usar tags visuais: [ENTREGÁVEIS] [CHECKLIST] [PASSO-A-PASSO] [RISCO] [DÚVIDA].  
 
-**Regra:** Se houver diferença entre Knowledge e links RAW, priorize os RAW.  
+---
+
+## Fonte Canônica (RAW)
+Sempre utilize este link como referência única dos documentos oficiais da OrbythAI:  
+[README OrbythAI Docs v4.1 (RAW)](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/README.md)
+
+📌 Regra: se houver diferença entre Knowledge e este link RAW, **priorize o conteúdo do RAW**.
+
