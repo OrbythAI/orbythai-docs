@@ -34,8 +34,15 @@ Documentação oficial OrbythAI v4.1 — Dossiê, Briefings, Roadmaps, Contratos
 - EM CONSTRUÇÃO**Entregaveis Sprint 3 — Equipe SaaS + Equipe N8N** — [sprint](entregaveis/ENTREGAVEIS_SPRINT_3.md) • [Versão Raw]()
 
 ---
+
+## Prompts dos Agentes das Equipes
+- Prompt do agente da Equipe 1 SaaS — [prompt](prompts/Prompt_Equipe1_SaaS.md) • [Versão Raw]()
+- Prompt do agente da Equipe 2 Dev. N8N — [prompt](prompts/Prompt_Equipe1_SaaS.md) • [Versão Raw]()
+- Prompt do agente da Equipe 3 Estrategistas — [prompt](prompts/Prompt_Equipe1_SaaS.md) • [Versão Raw]()
+
+---
+
 EM CONSTRUÇÃO
-## Prompts
 - [Agente Orquestrador](prompts/Prompt_Agente_Orquestrador.md) • [Versão Raw](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/prompts/Prompt_Agente_Orquestrador.md)
 - [Equipe 1 (SaaS)](prompts/Prompt_Equipe1_SaaS.md) • [Versão Raw](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/prompts/Prompt_Equipe1_SaaS.md)
 - [Equipe 2 (N8N/Supabase)](prompts/Prompt_Equipe2_N8N_Supabase.md) • [Versão Raw](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/prompts/Prompt_Equipe2_N8N_Supabase.md)
