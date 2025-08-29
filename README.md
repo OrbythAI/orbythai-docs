@@ -36,9 +36,12 @@ Documentação oficial OrbythAI v4.1 — Dossiê, Briefings, Roadmaps, Contratos
 ---
 
 ## Prompts dos Agentes das Equipes
-- Prompt do agente da Equipe 1 SaaS — [prompt](prompts/Prompt_Equipe1_SaaS.md) • [Versão Raw]()
-- Prompt do agente da Equipe 2 Dev. N8N — [prompt](prompts/Prompt_Equipe1_SaaS.md) • [Versão Raw]()
-- Prompt do agente da Equipe 3 Estrategistas — [prompt](prompts/Prompt_Equipe1_SaaS.md) • [Versão Raw]()
+- Prompt do agente da Equipe 1 SaaS — [prompt](prompts_agentes/prompt_equipe_1_SaaS) • [Versão Raw](https://github.com/OrbythAI/orbythai-docs/blob/6a557fc19c02be1246be3a47fef7090c63623b64/prompts_agentes/prompt_equipe_1_SaaS)
+
+- Prompt do agente da Equipe 2 N8N (supabase) — [prompt](prompts_agentes/prompt_equipe_2_n8n_supabase) • [Versão Raw](https://github.com/OrbythAI/orbythai-docs/blob/6a557fc19c02be1246be3a47fef7090c63623b64/prompts_agentes/prompt_equipe_2_n8n_supabase)
+
+- Prompt do agente da Equipe 3 Estrategistas — [prompt](prompts_agentes/prompt_equipe_3_estrategista) • [Versão Raw](https://github.com/OrbythAI/orbythai-docs/blob/6a557fc19c02be1246be3a47fef7090c63623b64/prompts_agentes/prompt_equipe_3_estrategista)
+
 
 ---
 
