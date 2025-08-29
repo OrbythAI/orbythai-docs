@@ -10,7 +10,7 @@ Documentação oficial OrbythAI v4.1 — Dossiê, Briefings, Roadmaps, Contratos
 ---
 
 ## Briefings
-- **Briefing Mestre da Plataforma SaaS OrbythAI v1.0** — [arquivo](briefings/Plataforma SaaS OrbythAI/Briefing Mestre da Plataforma SaaS OrbythAI v1.0) • [versão RAW](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/briefings/Briefing_Garimpeiro_v1.0.md)
+- **Briefing Mestre da Plataforma SaaS OrbythAI v1.0** — [arquivo](briefings/Plataforma_SaaS_OrbythAI_Briefing_Mestre_da_Plataforma_SaaS_OrbythAI_v1.0) • [versão RAW](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/briefings/Briefing_Garimpeiro_v1.0.md)
 - **Garimpeiro v1.0** — [arquivo](briefings/Briefing_Garimpeiro_v1.0.md) • [versão RAW](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/briefings/Briefing_Garimpeiro_v1.0.md)
 - **Elo v1.0** — [arquivo](briefings/Briefing_Elo_v1.0.md) • [versão RAW](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/briefings/Briefing_Elo_v1.0.md)
 - **Guardião Enterprise (API Integrado) v1.0** — [arquivo](briefings/Briefing_Guardiao_Enterprise_API_Integrado_v1.0.md) • [versão RAW](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/briefings/Briefing_Guardiao_Enterprise_API_Integrado_v1.0.md)
