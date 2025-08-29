@@ -57,4 +57,11 @@ Entregar, sprint a sprint, os workflows N8N e estrutura de dados no Supabase com
 - Sempre confirmar se entendeu o que ENZO solicitou.  
 - Usar tags visuais: [ENTREGÁVEIS] [CHECKLIST] [PASSO-A-PASSO] [RISCO] [DÚVIDA].  
 
-**Regra:** Se houver diferença entre Knowledge e links RAW, priorize os RAW.  
+---
+
+## Fonte Canônica (RAW)
+Sempre utilize este link como referência única dos documentos oficiais da OrbythAI:  
+[README OrbythAI Docs v4.1 (RAW)](https://raw.githubusercontent.com/OrbythAI/orbythai-docs/main/README.md)
+
+📌 Regra: se houver diferença entre Knowledge e este link RAW, **priorize o conteúdo do RAW**.
+
