@@ -1,0 +1,454 @@
+### **Briefing Mestre de Desenvolvimento: A Plataforma SaaS OrbythAI v1.0**
+
+* **Para:** Equipe de Desenvolvimento do SaaS  
+* **De:** Suzy (Estrategista)  
+* **Assunto:** Guia completo para a construção da plataforma, detalhando arquitetura, funcionalidades core, experiência do cliente e painéis administrativos para o MVP e a V1.0. Este documento substitui todos os briefings gerais anteriores.
+
+#### **1\. Objetivo do Documento**
+
+Servir como o guia mestre e única fonte da verdade para a equipe de desenvolvimento do SaaS, traduzindo o Dossiê Estratégico em requisitos funcionais e não funcionais para a construção da plataforma OrbythAI.
+
+#### **2\. Arquitetura e Fundamentos Técnicos**
+
+* **Tecnologia Principal:** A plataforma será desenvolvida como um **Progressive Web App (PWA)**, garantindo uma experiência de aplicativo instalável, com notificações e capacidade offline, a partir de um único código-base.  
+* **Princípio Arquitetural:** A plataforma deve ser construída com uma filosofia **modular e API-first**. O SaaS é a "interface" (o rosto) que consome os dados e aciona a lógica do "cérebro" (as APIs do Supabase e os webhooks do N8N).
+
+#### **3\. Estrutura de Contas e Acesso (O "Core" da Plataforma)**
+
+* **Multi-Tenancy:** A arquitetura deve garantir o **isolamento total dos dados** entre os clientes (`tenants`). Toda consulta ao banco de dados e toda chamada de API deve ser segura e restrita ao `tenant_id` do cliente autenticado.  
+* **Autenticação:** O sistema de login e cadastro utilizará o padrão **JWT/OAuth**, implementado através do Supabase Auth.  
+* **Controle de Acesso (RBAC):** A plataforma deve implementar os três papéis de usuário para o cliente: **Administrador Master (Owner), Gerente de Equipe e Usuário Operacional**, com permissões distintas para acessar cada funcionalidade.
+
+**4\. Experiência do Cliente (As Telas e Funcionalidades Principais)**
+
+Esta seção detalha os componentes que o cliente final irá ver e usar.
+
+### **A. Onboarding e Configuração de Agentes**
+
+O **Onboarding e a Configuração de Agentes** são parte integrante tanto do MVP Enterprise quanto da futura experiência Self-Service.
+
+* **Assistente de IA (Setup Wizard):**
+
+  * **MVP Enterprise:** O cliente será guiado em conjunto com a equipe da OrbythAI, utilizando o Setup Wizard como interface para parametrizar seus agentes com apoio assistido.
+
+  * **Fase 2 (Self-Service):** O mesmo Setup Wizard funcionará de forma 100% automatizada, guiando o cliente na configuração inicial sem suporte humano.
+
+* **Painel de Configuração do Agente:** Uma tela permanente para cada agente, onde o cliente pode fazer ajustes contínuos (editar base de conhecimento, mudar tom de voz, ajustar filtros e políticas).
+
+* **Ciclo de Feedback (👍/👎):** A interface visual para o cliente treinar seus agentes em tempo real, avaliando respostas e calibrando continuamente a performance.
+
+  * **MVP Enterprise:** Usado junto à nossa equipe como mecanismo de validação e calibragem.
+
+  * **Fase 2 (Self-Service):** Usado de forma independente, como treinamento direto pelo cliente.
+
+* **Playground:** Um ambiente de teste seguro para cada agente.
+
+  * **MVP Enterprise:** Utilizado pela equipe junto ao cliente para validar o comportamento do agente antes da ativação real.
+
+  * **Fase 2 (Self-Service):** Utilizado pelo próprio cliente de forma independente para explorar as capacidades do agente.
+
+---
+
+### **B. Dashboard Principal e Biblioteca de Agentes**
+
+* **Dashboard Modular com Widgets:** Tela inicial do cliente, onde poderá organizar os widgets de seus agentes.
+
+* **Prisma Essencial:** Cada agente terá seu próprio widget de dashboard com KPIs operacionais.
+
+* **Biblioteca de Agentes:**
+
+  * **MVP Enterprise:** vitrine mínima para ativação de agentes adicionais via contato com nossa equipe.
+
+  * **Fase 2 (Self-Service):** vitrine completa a la carte para ativação direta de agentes.
+
+---
+
+### **C. Gestão de Conta**
+
+* **Página de Assinatura e Faturamento:**
+
+  * **MVP Enterprise:** Página simplificada, com gestão de pacotes de orbkens, agentes ativos e relatórios de cobrança.
+
+  * **Fase 2 (Self-Service):** Página completa, com checkout automatizado, upgrades in-app e histórico detalhado de faturas.
+
+* **Painel de Governança do Cliente:** Área para o Admin gerenciar permissões da equipe e visualizar o Log de Atividades.
+
+---
+
+### **D. Ponto de Contato Unificado (Suporte e Expansão)**
+
+* **Agente de Suporte e Diagnóstico:** Concierge de IA dentro do SaaS, que centraliza todas as solicitações do cliente (dúvidas, sugestões, interesse em novos serviços), qualificando a necessidade e abrindo um ticket automático na Central de Solicitações.
+
+#### **5\. Painéis Administrativos (Nossas Ferramentas Internas)**
+
+O SaaS também deve incluir interfaces de back-office, acessíveis apenas pela nossa equipe.
+
+* **A. Painel de Administração OrbythAI (O "God Mode"):**  
+  * **Motor de Precificação Dinâmico:** Uma interface para a equipe de Estratégia poder criar, editar e precificar Planos, Agentes Add-on e Pacotes de "orbkens" sem a necessidade de desenvolvimento.  
+  * **Gestão da Equipe Interna:** Área para criar e gerenciar as contas dos nossos Especialistas e Gerentes de Contas.  
+  * **Prisma Interno:** O dashboard com os KPIs de negócio da OrbythAI (MRR, Churn, etc.).  
+* **B. OrbythAI Command Center (Painel do Especialista):**  
+  * A ferramenta de trabalho da nossa equipe de Sucesso do Cliente/Gerentes de Contas, com a "carteira de clientes" atribuída, a visão 360º de cada cliente e o CRM automatizado integrado.
+
+#### **6\. Anexo A: Especificações Funcionais para Integração dos Agentes do MVP**
+
+A equipe de SaaS deve construir as interfaces para suportar as seguintes funcionalidades dos agentes do MVP:
+
+* **Para o `Órby Garimpeiro`:**  
+  * **Interface de Configuração:** Permitir a criação de "Filtros Salvos" com campos para `Cidade`, `Tipo de Obra`, `Período`, `Área Mínima`, `Agendamento` e a seleção do `Modo de Abordagem` (Manual/Automático).  
+  * **Interface de Resultados:** Uma tabela para exibir as oportunidades encontradas com colunas para `Nome`, `Endereço`, `Contato`, `Status`.  
+  * **Ações do Usuário:** Botões para `Executar Busca Manual`, `Iniciar Abordagem com Órby Elo` e `Descartar Oportunidade`.
+
+* **Para o `Órby Guardião de Carteira`:**  
+  * **Interface de Configuração:** Um "Painel de Políticas Comerciais" com campos para `Regra de Inatividade` e `Janela de Ação para o Vendedor`. Acesso ao "Gestor de Contatos Órby" com "Gerenciador de Campos" e "Importador Inteligente".  
+  * **Interface de Resultados:** Um widget no dashboard com KPIs (`Clientes Monitorados`, `Alertas Enviados`) e um feed de atividades.
+
+* **Para o `Órby Elo (SDR IA)`:**  
+  * **Interface de Configuração:** Um "Painel de Qualificação" com um "Editor de Script" para o cliente definir as perguntas e um seletor para o "Objetivo Final" (Agendar Reunião / Gerar Proposta).  
+  * **Interface de Resultados:** Um painel com um funil visual ("Em Qualificação", "Qualificados") e um visualizador para a transcrição das conversas.
+
+* **Para o `Órby Orçamentista`:**   
+  * **Interface de Execução:** Uma tela com `Upload de Projeto` e um seletor para classificar o tipo de projeto.  
+  * **Interface de Resultados:** O "Painel de Validação e Calibragem" com a tabela de dados, a visualização da planta e o "Chat de Calibragem".  
+  * **Ações do Usuário:** Botões para `Gerar Pré-Proposta`, `Registrar Medição da Obra` e `Gerar Proposta Final`.
+
+* ### **Para o Órby Prisma Essencial:**
+
+  * **Interface de Apresentação:** O dashboard visual que acompanha cada agente, exibindo KPIs, gráficos e tabelas com os resultados da operação daquele agente.  
+  *  **Interface de Interação:** Um botão **`[ ✨ Analisar estes dados com a IA ]`** em cada dashboard, que abre uma interface de chat para fazer perguntas sobre os dados daquele painel.  
+  * **Ações do Usuário:** Aplicar filtros de data, ordenar tabelas, clicar em itens para ver detalhes e iniciar uma conversa com a IA para análises rápidas.
+
+  *  **Para o Órby** **Prisma Estrategista (O Super-Estrategista de Negócios)**    
+* **Interface de Execução:** Uma página dedicada e de acesso restrito no SaaS chamada **"Prisma Estratégico"**, contendo uma interface de chat avançada.  
+* **Interface de Resultados:** A mesma interface de chat, que deve ser capaz de exibir um histórico de conversas e renderizar as respostas estratégicas da IA de forma rica e formatada (com títulos, listas, tabelas, etc.).  
+* **Ações do Usuário:** Iniciar uma nova conversa estratégica fazendo uma pergunta em linguagem natural, navegar pelo histórico de análises anteriores e interagir com os resultados apresentados.
+
+**Anexo B: Especificações dos Dashboards Prisma Essencial**
+
+* **Para:** Equipe de Desenvolvimento do SaaS (Byth one)  
+* **Assunto:** Detalhamento das funcionalidades e componentes visuais para os dashboards operacionais de cada agente do MVP.
+
+  #### **1\. Prisma Essencial para o `Órby Garimpeiro`**
+
+* **Pergunta de Negócio que Responde:** "Meu motor de prospecção está funcionando e me trazendo boas oportunidades?"  
+* **Componentes do Dashboard:**  
+  * **KPIs Principais (em destaque):**  
+    * `Oportunidades Encontradas (Últimos 7 dias)`  
+    * `Aguardando Minha Revisão` (para o modo manual)  
+    * `Taxa de Relevância` (% de oportunidades aprovadas vs. total encontrado)  
+  * **Visualização Principal:**  
+    * Uma **tabela de resultados** interativa e pesquisável com as colunas `Nome da Oportunidade`, `Endereço`, `Contato Principal` e `Status`.  
+  * **Gráfico de Suporte:**  
+    * Um gráfico de barras simples mostrando o **número de novas oportunidades encontradas por dia** na última semana.  
+  * **Interação com IA:**  
+    * Um botão **`[ ✨ Analisar estes dados com a IA ]`** que abre a interface de chat para o "test drive" do Prisma Conversacional, limitado aos dados deste painel.
+
+    ---
+
+    #### **2\. Prisma Essencial para o `Órby Guardião de Carteira`**
+
+* **Pergunta de Negócio que Responde:** "Estou perdendo clientes? Minha equipe está agindo a tempo para evitar isso?"  
+* **Componentes do Dashboard:**  
+  * **KPIs Principais:**  
+    * `Clientes em Risco de Churn (Hoje)` (calculado pela IA)  
+    * `Alertas de Inatividade Pendentes` (aguardando ação do vendedor)  
+    * `Clientes Recuperados (Este Mês)`  
+  * **Visualização Principal:**  
+    * Uma lista de **"Ação Imediata"**, mostrando os 3 a 5 clientes com o maior score de risco de churn, com um link direto para o perfil deles.  
+    * Um **feed de atividades em tempo real**, mostrando as últimas ações do agente (ex: "Alerta enviado para o Vendedor João sobre o Cliente X").  
+  * **Interação com IA:**  
+    * Um botão **`[ ✨ Analisar estes dados com a IA ]`**. O cliente poderia perguntar: *"Qual o motivo mais comum para o risco de churn este mês?"*
+
+    ---
+
+    #### **3\. Prisma Essencial para o `Órby Elo (SDR IA)`**
+
+* **Pergunta de Negócio que Responde:** "Meu processo de triagem está sendo eficiente e me entregando boas oportunidades para negociar?"  
+* **Componentes do Dashboard:**  
+  * **KPIs Principais:**  
+    * `Leads em Qualificação (Agora)`  
+    * `Taxa de Qualificação` (% de leads qualificados vs. total abordado)  
+    * `Tempo Médio de Qualificação` (em horas/minutos)  
+  * **Visualização Principal:**  
+    * Um **funil visual no estilo Kanban**, com colunas para "Novos Leads", "Em Qualificação", "Qualificados" e "Desqualificados". Os cards de cada lead devem ser clicáveis para ver a transcrição da conversa.  
+  * **Gráfico de Suporte:**  
+    * Um gráfico de pizza mostrando os **"Principais Motivos de Desqualificação"**, um insight poderoso para otimizar o marketing.  
+  * **Interação com IA:**  
+    * Um botão **`[ ✨ Analisar estes dados com a IA ]`**. O cliente poderia perguntar: *"Liste as conversas com os leads qualificados hoje."*
+
+    ---
+
+    #### **4\. Prisma Essencial para o `Órby Orçamentista`**
+
+* **Pergunta de Negócio que Responde:** "Meu processo de orçamentação está sendo rápido, preciso e eficaz?"  
+* **Componentes do Dashboard:**  
+  * **KPIs Principais:**  
+    * `Orçamentos em Andamento`  
+    * `Tempo Médio para Gerar Pré-Proposta`  
+    * `Taxa de Aprovação de Pré-Propostas`  
+  * **Visualização Principal:**  
+    * Uma **pipeline visual** com o status de cada orçamento (ex: "Processando PDF", "Aguardando Validação Humana", "Aguardando Conferência em Obra", "Finalizado").  
+    * Uma lista dos últimos orçamentos gerados, com um link para baixar a proposta em PDF.  
+  * **Gráfico de Suporte:**  
+    * Um gráfico mostrando a proporção entre os tipos de projeto recebidos ("Detalhado", "Estrutural", "Arquitetônico").  
+  * **Interação com IA:**  
+    * Um botão **`[ ✨ Analisar estes dados com a IA ]`**. O cliente poderia perguntar: *"Qual o valor médio dos orçamentos para projetos estruturais este mês?"*
+
+#### **7\. Escopo do MVP**
+
+Conforme nossa estratégia "Top-Down", o MVP do SaaS deve focar em dar suporte ao nosso primeiro cliente Enterprise. A prioridade de desenvolvimento é:
+
+1. **O "Core" da Plataforma:** Autenticação, Multi-Tenancy e RBAC.  
+2. **Uma Interface Mínima do Cliente:** Com as funcionalidades de **configuração e ação** descritas no **Anexo A** e os **dashboards operacionais (Prisma Essencial e Prisma Estrategista)** descritos no **Anexo B**, para os agentes do Grupo Aleixo.  
+3. **O "OrbythAI Command Center" (v1):** A interface mínima para nossa equipe poder gerenciar o cliente.
+
+As funcionalidades de self-service (Onboarding com IA, Página de Assinatura, Biblioteca `a la carte`) serão desenvolvidas na **Fase 2** do roadmap.
+
+# **Prompt Sprint 0: Para a Equipe de Desenvolvimento do SaaS**
+
+**TÍTULO:** Prompt de Execução \- SPRINT 0 \- Fundação da Plataforma SaaS OrbythAI
+
+**PERSONA:** Você é um Engenheiro de DevOps e Arquiteto de Cloud, especialista em configurar ambientes de desenvolvimento seguros, escaláveis e baseados nas melhores práticas para aplicações PWA (Progressive Web App).
+
+**CONTEXTO:** Você tem acesso ao **Dossiê Mestre OrbythAI v4.1** e ao **Roadmap de Construção do SaaS v4.1**. Estamos iniciando o Sprint 0, cujo objetivo é preparar toda a infraestrutura de código-fonte e de backend como serviço (BaaS) antes do início do desenvolvimento das funcionalidades. A tecnologia base é **Supabase** para o BaaS e um framework moderno para o PWA (**Next.js** recomendado).
+
+**OBJETIVO PRINCIPAL:** Criar e configurar toda a infraestrutura de backend (Supabase) e de código-fonte (Git), com um pipeline de deploy automatizado (CI/CD), para a Plataforma SaaS OrbythAI.
+
+---
+
+## **TAREFAS DETALHADAS**
+
+**Configuração dos Projetos Supabase:**
+
+* Crie dois projetos distintos no Supabase: `orbythai-dev` (para desenvolvimento e testes) e `orbythai-prod` (para o ambiente de produção final).
+
+* Em ambos os projetos, habilite o Supabase Auth.
+
+* Garanta que as chaves de API (`anon key`, `service_role key`) e as URLs de cada projeto estejam salvas de forma segura e documentadas para uso futuro.
+
+**Configuração do Repositório de Código (Git):**
+
+* Crie um novo repositório privado no GitHub chamado `orbythai-saas-platform`.
+
+* Inicie o projeto com um framework PWA moderno (Next.js é o recomendado).
+
+* Crie e proteja duas branches principais: `main` (para o código de produção) e `develop` (para o código de desenvolvimento).
+
+**Configuração do Deploy Automatizado (CI/CD):**
+
+* Conecte o repositório Git a uma plataforma de hospedagem e deploy (ex: Vercel ou outra que a equipe validar).
+
+* Configure a pipeline para que todo **push** na branch `develop` acione um deploy automático para um ambiente de desenvolvimento com uma URL pública (ex: `dev.app.orbythai.com.br`).
+
+* Configure a pipeline para que todo **merge** na branch `main` acione um deploy automático para o ambiente de produção com a URL final (ex: `app.orbythai.com.br`).
+
+---
+
+## **CRITÉRIOS DE ACEITAÇÃO (O que significa "pronto")**
+
+* Os dois projetos Supabase (`dev` e `prod`) devem estar criados e acessíveis.
+
+* O repositório Git deve estar criado, com as branches `main` e `develop` configuradas.
+
+* Uma alteração de código simples na branch `develop` deve ser visível na URL de desenvolvimento em menos de 5 minutos, sem intervenção manual.
+
+---
+
+## **FORMATO DE SAÍDA**
+
+Gere um relatório em formato **Markdown** contendo:
+
+* Os links para os projetos Supabase.
+
+* O link para o repositório Git.
+
+* As URLs dos ambientes de desenvolvimento e produção.
+
+# **📌Prompt Sprint 1: Para a Equipe de Desenvolvimento do SaaS**
+
+**TÍTULO:** Prompt de Execução – SPRINT 1 – Esqueleto (Login e Gestão de Contas)
+
+**PERSONA:** Você é um Engenheiro Fullstack especializado em autenticação, controle de acesso e construção de PWAs robustos, com experiência em integração com BaaS (Backend as a Service) como Supabase.
+
+**CONTEXTO:** Você tem acesso ao **Dossiê Mestre OrbythAI v4.1** e ao **Roadmap de Construção do SaaS v4.1**. Estamos iniciando o Sprint 1, cujo objetivo é entregar o núcleo de autenticação e gestão de contas da Plataforma SaaS OrbythAI. Isso inclui autenticação, RBAC (controle de permissões por papel) e a estrutura inicial do Command Center.
+
+**OBJETIVO PRINCIPAL:** Entregar o fluxo de autenticação seguro (login, cadastro, recuperação de senha), com RBAC implementado e painel inicial (Command Center) pronto para expansão.
+
+---
+
+## **TAREFAS DETALHADAS**
+
+**Equipe SaaS (Byth One \+ IA SaaS):**
+
+* Desenvolver a interface de **Login, Cadastro e Recuperação de Senha**.
+
+* Construir a API de autenticação integrada ao Supabase.
+
+* Implementar o sistema de permissões (RBAC) com os 3 níveis:
+
+  * **Admin**
+
+  * **Gerente**
+
+  * **Operador**
+
+* Criar a estrutura básica do **OrbythAI Command Center** (painel vazio, mas acessível após login).
+
+**Equipe N8N (Enzo \+ IA N8N):**
+
+* Criar as tabelas `users`, `tenants`, `roles` no Supabase.
+
+* Aplicar **RLS (Row Level Security)** para garantir multi-tenancy seguro.
+
+* Construir workflow simples de teste que confirme que uma chamada autenticada do SaaS aciona o N8N corretamente.
+
+---
+
+## **CRITÉRIOS DE ACEITAÇÃO**
+
+* O usuário consegue **se cadastrar, logar e recuperar senha**.
+
+* O RBAC funciona corretamente (Admin, Gerente, Operador).
+
+* A tabela `users` respeita isolamento por tenant via RLS.
+
+* O Command Center (painel vazio) é acessível somente após login válido.
+
+* Workflow N8N de teste é acionado com chamada autenticada.
+
+---
+
+## **FORMATO DE SAÍDA**
+
+Gere um relatório em formato **Markdown** contendo:
+
+* Links para os endpoints de autenticação.
+
+* Estrutura das tabelas criadas no Supabase (DDL).
+
+* Captura de tela ou link do Command Center vazio.
+
+* Evidência da chamada SaaS → Supabase → N8N autenticada.
+
+# **📌 Prompt Sprint 0 – Equipe N8N/Supabase**
+
+**TÍTULO:** Prompt de Execução – SPRINT 0 – Fundação do Ambiente N8N/Supabase
+
+**PERSONA:** Você é um Engenheiro de Automação e Arquiteto de Banco de Dados especializado em **N8N** e **Supabase**, responsável por preparar ambientes de workflows e governança de dados seguros, escaláveis e multi-tenant.
+
+**CONTEXTO:** Você tem acesso ao **Dossiê Mestre OrbythAI v4.1** e ao **Roadmap de Construção do SaaS v4.1**. Estamos no Sprint 0, cujo objetivo é preparar toda a infraestrutura de automação e banco de dados antes do início do desenvolvimento das funcionalidades.
+
+**OBJETIVO PRINCIPAL:** Criar ambientes N8N de desenvolvimento e produção, configurar Supabase inicial (tabelas users, tenants, roles) e garantir governança multi-tenant via RLS, deixando a base pronta para os próximos sprints.
+
+---
+
+## **TAREFAS DETALHADAS**
+
+**Configuração do Ambiente N8N:**
+
+* Criar duas instâncias independentes do N8N (dev e prod) no VPS (ex.: Contabo).
+
+* Configurar autenticação e permissões básicas de acesso.
+
+* Garantir versionamento dos workflows (git sync ou export .json).
+
+**Configuração do Supabase:**
+
+* Criar as tabelas iniciais:
+
+  * `users`
+
+  * `tenants`
+
+  * `roles`
+
+* Ativar RLS (Row Level Security) em todas as tabelas.
+
+* Definir políticas de acesso para cada nível de RBAC (Admin, Gerente, Operador).
+
+**Integração Inicial SaaS ↔ N8N:**
+
+* Criar workflow simples de teste: receber uma chamada autenticada do SaaS e registrar no Supabase (ex.: log de “ping”).
+
+* Expor webhook no N8N para ser consumido pelo SaaS.
+
+---
+
+## **CRITÉRIOS DE ACEITAÇÃO**
+
+* Instâncias N8N dev/prod ativas e acessíveis.
+
+* Tabelas `users`, `tenants` e `roles` criadas com RLS habilitado.
+
+* Workflow de teste rodando: chamada autenticada SaaS → N8N → Supabase.
+
+* Documentação dos endpoints e credenciais entregue de forma segura.
+
+---
+
+## **FORMATO DE SAÍDA**
+
+Relatório em **Markdown** contendo:
+
+* URLs das instâncias N8N dev/prod.
+
+* Estrutura SQL das tabelas criadas (`users`, `tenants`, `roles`).
+
+* Políticas RLS implementadas.
+
+* Exemplo de chamada SaaS → N8N → Supabase (cURL ou JSON).
+
+# **📌 Prompt Sprint 1 – Equipe N8N/Supabase**
+
+**TÍTULO:** Prompt de Execução – SPRINT 1 – Estrutura de Autenticação e Integração
+
+**PERSONA:** Você é um Engenheiro de Dados responsável por garantir segurança e multi-tenant em aplicações SaaS com Supabase e N8N.
+
+**CONTEXTO:** Você tem acesso ao **Dossiê Mestre OrbythAI v4.1** e ao **Roadmap v4.1 (Sprint 1\)**. O objetivo do Sprint 1 é entregar a fundação de autenticação, RBAC e integração SaaS ↔ N8N.
+
+**OBJETIVO PRINCIPAL:** Validar autenticação e permissões com SaaS, estruturando corretamente Supabase para suportar multi-tenancy e conectar com workflows no N8N.
+
+---
+
+## **TAREFAS DETALHADAS**
+
+**Supabase:**
+
+* Garantir que a tabela `users` esteja vinculada a `tenants` e `roles`.
+
+* Configurar políticas RLS para que cada tenant só veja seus próprios dados.
+
+* Criar seeds de teste (usuário admin, gerente e operador).
+
+**N8N:**
+
+* Ajustar workflow de teste para verificar credenciais reais do Supabase.
+
+* Documentar payload esperado para o SaaS acionar o workflow.
+
+* Retornar resposta clara (ex.: status `200 OK` com corpo JSON `{"auth":"success"}`).
+
+---
+
+## **CRITÉRIOS DE ACEITAÇÃO**
+
+* Autenticação SaaS ↔ Supabase validada via RLS.
+
+* Usuário de teste loga no SaaS e consegue acionar workflow no N8N.
+
+* Logs no Supabase confirmam isolamento multi-tenant.
+
+---
+
+## **FORMATO DE SAÍDA**
+
+Relatório em **Markdown** contendo:
+
+* Estrutura atualizada das tabelas (`users`, `tenants`, `roles`).
+
+* Políticas RLS aplicadas (SQL).
+
+* Exemplo de payload SaaS → N8N → Supabase.
+
+* Logs de teste.
+
