@@ -43,7 +43,7 @@ Objetivo: Servir como o guia mestre e única fonte da verdade para o desenvolvim
 # **Parte 3: Arquitetura de Tecnologia e Plataforma**
 
 3.1. Infraestrutura Geral  
- Modelo de Aplicação (PWA-First): PWA hospedado na Hostinger (frontend).  
+ Modelo de Aplicação (PWA-First): PWA hospedado na Versel (frontend).  
  Backend de Automação (Motor): N8N em VPS dedicado na Contabo.  
  Banco de Dados (Cérebro): Supabase multi-tenant com RLS.  
  Segurança: OAuth2 \+ JWT, Supabase Vault, LGPD.
