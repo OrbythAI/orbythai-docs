@@ -19,7 +19,7 @@
 **
 * **Criar os repositórios Git e convenções de branch (<code>develop</code>/<code>main</code>). \
 **
-* **CI/CD (Hostinger): conectar repositório, deploy automático em desenvolvimento a cada push em <code>develop</code> e em produção a cada merge em <code>main</code>. Variáveis de ambiente e rotinas de rollback documentadas. \
+* **CI/CD (Versel): conectar repositório, deploy automático em desenvolvimento a cada push em <code>develop</code> e em produção a cada merge em <code>main</code>. Variáveis de ambiente e rotinas de rollback documentadas. \
 **
 
 **Tarefas da Equipe N8N (Enzo)**
